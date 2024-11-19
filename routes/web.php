@@ -2,6 +2,7 @@
 
 use Auth0\Laravel\Facade\Auth0;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/private', function () {
   return response('Welcome! You are logged in.');
@@ -45,3 +46,5 @@ Route::get('/colors', function () {
 
   return response("Hello {$name}! Your favorite color is {$color}.");
 })->middleware('auth');
+
+Route::get('create-user',[UserController::class,'create']);

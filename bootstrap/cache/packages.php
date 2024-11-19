@@ -10,6 +10,17 @@
       0 => 'Auth0\\Laravel\\ServiceProvider',
     ),
   ),
+  'kreait/laravel-firebase' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Kreait\\Laravel\\Firebase\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Firebase' => 'Kreait\\Laravel\\Firebase\\Facades\\Firebase',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 
