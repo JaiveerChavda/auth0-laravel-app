@@ -1,0 +1,48 @@
+{
+    "name": "My Laravel Application 2",
+    "description": "",
+    "client_id": "5GeU1oDkXVpQRyKzZch0YGln3wm5VGz4",
+    "client_secret": "IABELhAPM0CggtDShj8frQYWhKamfOYJ-58zTtvJl3fnT2ldZ5QpnnrqIbA8U_VW",
+    "app_type": "regular_web",
+    "is_first_party": true,
+    "is_token_endpoint_ip_header_trusted": false,
+    "oidc_conformant": true,
+    "callbacks": [
+        "http://localhost:8000/callback"
+    ],
+    "allowed_logout_urls": [
+        "http://localhost:8000"
+    ],
+    "jwt_configuration": {
+        "secret_encoded": false,
+        "alg": "RS256"
+    },
+    "signing_keys": [
+        {
+            "cert": "-----BEGIN CERTIFICATE-----\r\nMIIDHTCCAgWgAwIBAgIJTfkgqPZ1OqL7MA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNV\r\nBAMTIWRldi1lNnM2djh5MjR4cTFybDZ3LnVzLmF1dGgwLmNvbTAeFw0yNDExMTkw\r\nNTE2MDRaFw0zODA3MjkwNTE2MDRaMCwxKjAoBgNVBAMTIWRldi1lNnM2djh5MjR4\r\ncTFybDZ3LnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC\r\nggEBAI26Yz5eU83UiK0NgJqwqCiXOwIZI1ECiLjWelk9meOYw9z8lO8ZpJENBzKz\r\n5lcB7SLOX5ohmHZNcTtwpFcFkd+xOZnkfKN+667dluhuYSBO5lAaYa8dhg8PrDoe\r\n/st60Vrkx05tgSQyO9YMtHCUL6Yu1ZHyWK5HrnnezBcusIMZTk8F314GmQfzkEbF\r\nI1Q+qsevpeGPlEA/WLeUxw02SHmMqVmODDxXl8kLxpVURzWbuEPS7m9ex+xaBUXO\r\nnLa8gRNwKDWpNITzIcw0rFjHgUnt/tOn5g/SPVT4uHVQ1R9YNPlsZfIgZ/alHqSl\r\nBZXMFXLbcFIFRuMySDr1CZHKTusCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAd\r\nBgNVHQ4EFgQUE2qmX4uaPH6SPN0KLZYq2opRY1swDgYDVR0PAQH/BAQDAgKEMA0G\r\nCSqGSIb3DQEBCwUAA4IBAQBeM25KC+zqHEX7hQJrrgnPoVZp/TEDr3EqQnlehjke\r\nIpGfxTaignjhsmZpMLWwoiE55aBAu6LFNj/2lUATDrGm/QjgpEFubNsjlWLGpjC5\r\nhXmMc5ZkD8Y6k3yreQOLsVhdLkcmLrCjyTBHxJznBVFR5ylUxEQpSQUd/1VAdv/H\r\np40MJGd4IMocso7Un3e/vxzk1c6RoP5Ep3SLoBjHDrWLdehKzOkOGBKUg9lqi6/M\r\nfS64ApY40nU8F3JkOXB5nchsj84JyKuUhBefM22Fdeh5psUpuuW/UfXkCRwHw+gn\r\n/945aL6uLFje49jVo7DDqK0FRsr+QQnEmEAYXE1tBPxz\r\n-----END CERTIFICATE-----\r\n",
+            "key": "-----BEGIN RSA PRIVATE KEY-----\r\nMIIEowIBAAKCAQEAqaRZq6MsrGG9eefxxVd+JgDMNsC8FVQnG4h+cO9eRHx6mD6h\r\nFQFnTkWy2tCgHA2OCb6+gOsVJSHJl5acRUiq8Kbcj50MlVp/49p9lbhDXgk4ztAe\r\nzCxAzYj4XSxGkvjT+VoISgP51KkAQIjfIL+FxVnoopHH16G/lSGTnYYGt/XkSjIt\r\n6hMysamMe/PjFQFIy/SR7gLgBKaKDOSZcJwO02C8Mc76ahZw1emd9DfuFx8/bYFY\r\naV7gZJK00x9TZj8j6wurP6pi4zHQ94QrMlRDOY7vbi2L0C+1ygYCh5uAr0uIWPop\r\nUaUQV3/7xRZf/XHa3ZYSkidPjBh2DXDZVYa6UwIDAQABAoIBACzmue9SrNfhtPen\r\n21f6/QJNEsBpSj8w+3rvqVv2F5L0CbTzWsqHCRNwIlOFheN2+QH+UUkpL/sYktXD\r\nQRCbl9dDqzx9+p8riY9DPRtcXsRsl3MyJfyvt+VPHEH5HqL3JpAo8um4XK+bndv2\r\n/mwaFWuzjP4+rNEX2HA+J2a521xkU7U561SJF3QjR+a0j+fbsDtOdMrOvrZi8MTg\r\nv8e+gx/huTjp5aAfhh0tUG1j2A6kl7VHPQBybwpkaSuKcd4ITdiaAc132QPrtsbU\r\nes7QB8GbuO4D24KXOAqLUhbzYg9TDAGo8nJYsPWFyBpdrV+YV9CJ8piL8VTr2mwa\r\n38Fq+GUCgYEA6ER3LYOb5BPoL6HyB8bKHxs2tnIgsTd9Y9dz8/JHm6TV0iu0bhuy\r\nQfSBZ/6PynU5qMMKITGZZuuSjFfx/VX9G1lsJOUOXVzFOQOBY4/O9nPWnmflqVfs\r\nGwZqbIL+ZIczFWDao+CAyQ1nHVMiq/2H0dsO4GaVzivUmBFkUYe5JG0CgYEAuvnC\r\nhRrkMSI6K9kIpMpjWNekGITqNfyTdNPQwXenqjsU8cMsoEYFdnBtmI4PEd0rksHE\r\n9tVQb6skRwfuFayyo5LfUz1qduKGjrEdyPONT/6zdea9GY/uvJIiLz8daoLioQxQ\r\nEtWPhT9yGBSUym9qTGlX5uO9kxo4hyRAt4bsob8CgYAMAA2QQm55eDXU0C8rC7BB\r\nryxCfN8HiPBniigpgGkGt5t8glmOHsw08CcHcnWHZksWVw1c7a0ZTi6CJcEQ77Jm\r\nCVa3CUaWuEZQTcgPlsyAmzeJc6DAARTnyIsTFCmElB+liR2CvgSpXpHnR/ZQoIa1\r\n5vV7zpEK1+Th/nQKalK8eQKBgQC2PVu4KpbBwQ+bz0VagR1F6aC6eUpi5lS+6Pku\r\nqLaV+FIYtlgXu0f1we1AZS4RBlZDC3Qz9YQZ42BPj04ieBoBztS3KERNrcri54UV\r\naTWSA7ndL9GeSaiyyWhiTo0YVIwZ1otxYBAsGsPU7rJ7gQ7FfWO82rra1xLDvbUK\r\nbIrVtwKBgBW3U9EqKkTji9hdsTGCc2o+VSnFS3mXdHIBDGH36qRmcKsuWs71NiKZ\r\nRmSFW0dtB+FBIH3Xe9MB0/1/2T+AMkxM1Im+qzMCFK7C08tIkfuWTFz810w7h+9Y\r\nbcA5yakNp817d2+7vuvlHspgpnw/yv4fHKaN86Grhc+fYWIsb5ei\r\n-----END RSA PRIVATE KEY-----\r\n",
+            "pkcs7": "-----BEGIN PKCS7-----\r\nMIIDTAYJKoZIhvcNAQcCoIIDPTCCAzkCAQExADALBgkqhkiG9w0BBwGgggMhMIID\r\nHTCCAgWgAwIBAgIJTfkgqPZ1OqL7MA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNVBAMT\r\nIWRldi1lNnM2djh5MjR4cTFybDZ3LnVzLmF1dGgwLmNvbTAeFw0yNDExMTkwNTE2\r\nMDRaFw0zODA3MjkwNTE2MDRaMCwxKjAoBgNVBAMTIWRldi1lNnM2djh5MjR4cTFy\r\nbDZ3LnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB\r\nAI26Yz5eU83UiK0NgJqwqCiXOwIZI1ECiLjWelk9meOYw9z8lO8ZpJENBzKz5lcB\r\n7SLOX5ohmHZNcTtwpFcFkd+xOZnkfKN+667dluhuYSBO5lAaYa8dhg8PrDoe/st6\r\n0Vrkx05tgSQyO9YMtHCUL6Yu1ZHyWK5HrnnezBcusIMZTk8F314GmQfzkEbFI1Q+\r\nqsevpeGPlEA/WLeUxw02SHmMqVmODDxXl8kLxpVURzWbuEPS7m9ex+xaBUXOnLa8\r\ngRNwKDWpNITzIcw0rFjHgUnt/tOn5g/SPVT4uHVQ1R9YNPlsZfIgZ/alHqSlBZXM\r\nFXLbcFIFRuMySDr1CZHKTusCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNV\r\nHQ4EFgQUE2qmX4uaPH6SPN0KLZYq2opRY1swDgYDVR0PAQH/BAQDAgKEMA0GCSqG\r\nSIb3DQEBCwUAA4IBAQBeM25KC+zqHEX7hQJrrgnPoVZp/TEDr3EqQnlehjkeIpGf\r\nxTaignjhsmZpMLWwoiE55aBAu6LFNj/2lUATDrGm/QjgpEFubNsjlWLGpjC5hXmM\r\nc5ZkD8Y6k3yreQOLsVhdLkcmLrCjyTBHxJznBVFR5ylUxEQpSQUd/1VAdv/Hp40M\r\nJGd4IMocso7Un3e/vxzk1c6RoP5Ep3SLoBjHDrWLdehKzOkOGBKUg9lqi6/MfS64\r\nApY40nU8F3JkOXB5nchsj84JyKuUhBefM22Fdeh5psUpuuW/UfXkCRwHw+gn/945\r\naL6uLFje49jVo7DDqK0FRsr+QQnEmEAYXE1tBPxzMQA=\r\n-----END PKCS7-----\r\n",
+            "subject": "/CN=dev-e6s6v8y24xq1rl6w.us.auth0.com"
+        }
+    ],
+    "sso_disabled": false,
+    "cross_origin_authentication": false,
+    "grant_types": [
+        "implicit",
+        "authorization_code",
+        "refresh_token",
+        "client_credentials"
+    ],
+    "custom_login_page_on": true,
+    "token_endpoint_auth_method": "client_secret_post",
+    "client_metadata": {},
+    "refresh_token": {
+        "rotation_type": "non-rotating",
+        "expiration_type": "non-expiring",
+        "leeway": 0,
+        "token_lifetime": 31557600,
+        "infinite_token_lifetime": true,
+        "infinite_idle_token_lifetime": true,
+        "idle_token_lifetime": 2592000
+    }
+}
