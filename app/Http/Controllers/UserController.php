@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Auth0\Laravel\Facade\Auth0;
+use Auth0\SDK\Utility\HttpResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -67,9 +70,26 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        //
+        if(!Auth::check()){
+            dd('you are not logged in');
+        }
+
+        $user = auth()->user();
+        $auth_id = auth()->id();
+
+        $user = Auth0::management()->users()->get($auth_id);
+
+        info('user info',[
+            'user ' => $user
+        ]);
+
+        dd(json_decode($user->getBody()));
+
+        dd(HttpResponse::decodeContent($user));
+
+        return view('profile', ['user'=> $user]);
     }
 
     /**
@@ -81,7 +101,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        
     }
 
     /**
