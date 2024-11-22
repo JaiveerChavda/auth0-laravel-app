@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Google\Cloud\Firestore\FirestoreClient;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->bind(\FirestoreDatabase::class, function () {
+            return new FirestoreClient([
+                'projectId' => config('services.firebase.project_id')
+            ]);
+        });
     }
 
     /**

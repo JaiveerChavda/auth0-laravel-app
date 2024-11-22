@@ -35,8 +35,9 @@ class UserController extends Controller
         // dd('on create method');
         $user = app('firebase.firestore')->database()->collection('users')->newDocument();
         $user->set([
-            'name' => 'balmukund',
-            'email' => 'brojasara@truptman.in'
+            'name' => 'john',
+            'email' => 'johndeo@example.in',
+            // 'last_login_at' => now(),
         ]);
      
         dd('user created');

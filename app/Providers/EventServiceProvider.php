@@ -2,11 +2,14 @@
 
 namespace App\Providers;
 
+use App\Listeners\LogSuccessfullLogin;
+use App\Listeners\LogSuccessfullSignup;
+use Auth0\Laravel\Events\LoginAttempting;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
-
+use Auth0\Laravel\Events\AuthenticationSucceeded;
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +21,15 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        // LoginAttempting::class => [
+        //     LogSuccessfullLogin::class,
+        // ],
+        Login::class => [
+            LogSuccessfullLogin::class,
+        ],
+        // AuthenticationSucceeded::class => [
+        //     LogSuccessfullSignup::class,
+        // ]
     ];
 
     /**
