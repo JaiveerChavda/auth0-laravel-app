@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\FirestoreDatabase;
 use Auth0\Laravel\Facade\Auth0;
 use Auth0\SDK\Utility\HttpResponse;
 use Illuminate\Http\Request;
@@ -10,11 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    protected $firestoreDB;
-
-    public function __contruct(){
-        $this->$firestoreDB = app('firebase.firestore')->database();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -30,14 +26,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FirestoreDatabase $firestoreDB)
     {
-        // dd('on create method');
-        $user = app('firebase.firestore')->database()->collection('users')->newDocument();
-        $user->set([
-            'name' => 'john',
-            'email' => 'johndeo@example.in',
-            // 'last_login_at' => now(),
+        $userRef = $firestoreDB->database->collection('users')->newDocument();
+
+        $firestoreDB->createDoc($userRef,[
+            'name' => 'rahul',
+            'email' => 'rahul@example.com',
+            'last_login_at' => now(),
         ]);
      
         dd('user created');
