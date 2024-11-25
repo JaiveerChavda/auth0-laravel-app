@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Firestore\UserCollection;
 use App\Models\User;
 use App\Services\FirestoreDatabase;
 use Auth0\Laravel\Facade\Auth0;
@@ -26,23 +27,25 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(FirestoreDatabase $firestoreDB)
+    public function create(UserCollection $userCollection)
     {
-        $userRef = $firestoreDB->database->collection('users')->newDocument();
-
-        $firestoreDB->createDoc($userRef,[
-            'name' => 'rahul',
-            'email' => 'rahul@example.com',
+        $userCollection->createUser('jrajora@truptman.in', [
+            'id' => 'asdfa sdfasdf asdf ',
+            'name' => 'jignesh rajora',
+            'nickname' => 'jignesh',
+            'email' => 'jrajora@truptman.in',
+            'email_verified' => true,
+            'picture' => null,
+            'updated_at' => now(),
             'last_login_at' => now(),
         ]);
-     
-        dd('user created');
+
+        dd('user created successfully');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -56,9 +59,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(FirestoreDatabase $db, UserCollection $user)
     {
-        //
+        $suresh = $user->findOrFail('suresh@example.com');
+
+        dd($suresh);
     }
 
     /**
@@ -69,7 +74,7 @@ class UserController extends Controller
      */
     public function edit()
     {
-        if(!Auth::check()){
+        if (! Auth::check()) {
             dd('you are not logged in');
         }
 
@@ -78,33 +83,27 @@ class UserController extends Controller
 
         $user = Auth0::management()->users()->get($auth_id);
 
-        info('user info',[
-            'user ' => $user
+        info('user info', [
+            'user ' => $user,
         ]);
 
         dd(json_decode($user->getBody()));
 
         dd(HttpResponse::decodeContent($user));
 
-        return view('profile', ['user'=> $user]);
+        return view('profile', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
-    {
-        
-    }
+    public function update(Request $request, User $user) {}
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

@@ -2,9 +2,7 @@
 
 namespace App\Listeners;
 
-use Illuminate\Auth\Events\Login;
-
-
+use App\Firestore\UserCollection;
 
 final class LogSuccessfullLogin
 {
@@ -13,7 +11,7 @@ final class LogSuccessfullLogin
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(private UserCollection $model)
     {
         //
     }
@@ -24,31 +22,27 @@ final class LogSuccessfullLogin
      * @param  object  $event
      * @return void
      */
-    public function handle(Login $event)
+    public function handle($event)
     {
-        $firestore = app();
-        $usersRef = $firestore->database()->collection('users')->document($event->user->sid);
+        $user = $this->model->findOrFail($event->user->email);
 
-        $allUsers = $firestore->database()->collection('users')->documents();
-
-        info('users with ' . $event->user->email,[
-            'data' => $usersRef,
-        ]);
-
-        $usersRef->set([
-            'name' => 'laraval',
-        ],['merge' => true]);
-
-        // Convert Firestore documents to an array
-        $users = [];
-        foreach ($allUsers as $document) {
-            $users[$document->id()] = $document->data();
+        if (! $user) {
+            $this->model->createUser($event->user->email, [
+                'id' => $event->user->sid,
+                'nickname' => $event->user->nickname,
+                'name' => $event->user->name,
+                'email' => $event->user->email,
+                'picture' => $event->user->picture,
+                'email_verified' => $event->user->email_verified,
+                'last_login_at' => now(),
+                'updated_at' => $event->user->updated_at,
+            ]);
+            info('inside user creation');
+            return;
         }
 
-        info('user data', [
-            'data' => $users
+        $this->model->updateUser($event->user->email,[
+            'last_login_at' => now()
         ]);
-        
-        info('auth0 login listner');
     }
 }

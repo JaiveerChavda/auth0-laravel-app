@@ -2,8 +2,6 @@
 
 namespace App\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Auth0\Laravel\Events\AuthenticationSucceeded;
 
 class LogSuccessfullSignup
@@ -34,7 +32,7 @@ class LogSuccessfullSignup
 
         info('auth0 signup listner');
 
-        // create new user document(record) in users collection 
+        // create new user document(record) in users collection
         // $user = $database->collection('users')->newDocument();
         // $user->set([
         //     'id' => $event->user->sid,
