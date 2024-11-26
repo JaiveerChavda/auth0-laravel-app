@@ -83,15 +83,18 @@ class UserController extends Controller
 
         $user = Auth0::management()->users()->get($auth_id);
 
-        info('user info', [
-            'user ' => $user,
-        ]);
+        // info('user info', [
+        //     'user ' => $user,
+        // ]);
 
-        dd(json_decode($user->getBody()));
+        $userInfo = json_decode($user->getBody());
+        // dd($userInfo);
 
-        dd(HttpResponse::decodeContent($user));
+        // dd(json_decode($user->getBody()));
 
-        return view('profile', ['user' => $user]);
+        // dd(HttpResponse::decodeContent($user));
+
+        return view('profile', ['user' => $userInfo]);
     }
 
     /**
@@ -99,7 +102,35 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user) {}
+    public function update(Request $request, UserCollection $userModel) {
+        // validate the request
+        $validated = $request->validate([
+            'name' => 'required|max:125',
+            'email' => 'email|required|string|max:255',
+            'nickname' => 'required|string|max:255'
+        ]);
+
+
+
+        //update the data on auth0 side
+        $user = Auth0::management()->users()->update(auth()->id(), $validated,config('services.auth0.client_id'));
+
+        $userData = json_decode($user->getBody());
+        
+        info('update user',[
+            'user' => $userData,
+        ]);
+
+        // update the data on firestore side.
+        $userModel->updateUser($userData->email,[
+            'name' => $userData->name,
+            'email'=> $userData->email,
+            'nickname' => $userData->nickname,
+        ]);
+
+        return redirect(route('profile'));
+
+    }
 
     /**
      * Remove the specified resource from storage.

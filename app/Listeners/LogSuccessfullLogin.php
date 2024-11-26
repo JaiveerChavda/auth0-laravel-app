@@ -37,7 +37,6 @@ final class LogSuccessfullLogin
                 'last_login_at' => now(),
                 'updated_at' => $event->user->updated_at,
             ]);
-            info('inside user creation');
             return;
         }
 

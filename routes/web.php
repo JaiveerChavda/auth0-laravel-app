@@ -15,6 +15,9 @@ Route::get('/scope', function () {
 
 Route::get('profile', [UserController::class, 'edit'])->name('profile');
 
+Route::post('profile', [UserController::class, 'update'])->name('profile.update');
+
+
 Route::get('/colors', function () {
     $endpoint = Auth0::management()->users();
 
@@ -47,7 +50,8 @@ Route::get('/', function () {
         return response('You are not logged in.');
     }
 
-    $user = auth()->user();
+    $userResponse = Auth0::management()->users()->get(auth()->id());
+    $user = json_decode($userResponse->getBody());
     $name = $user->name ?? 'User';
     $email = $user->email ?? '';
 
